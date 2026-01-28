@@ -8,6 +8,6 @@ final appRouter = GoRouter(
       path: '/',
       builder: (context, state) => const HomePage(),
     ),
-   
+    
   ],
 );
