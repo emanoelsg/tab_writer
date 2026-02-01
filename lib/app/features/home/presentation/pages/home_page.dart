@@ -1,4 +1,5 @@
 // app/features/home/presentation/pages/home_page.dart
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -7,11 +8,28 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home Page'),
-      ),
-      body: const Center(
-        child: Text('Welcome to the Home Page!'),
+      drawer: const Drawer(),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            floating: true, 
+            snap: true, 
+            pinned: true, 
+            title: SearchBar(
+              leading: const Icon(Icons.search),
+              hintText: 'Search...',
+              onSubmitted: (value) {
+                // Handle search action
+              },
+            ),
+          ),
+
+          
+          SliverToBoxAdapter(child: Column(children: [
+            //list of tabs
+              ]
+            )),
+        ],
       ),
     );
   }

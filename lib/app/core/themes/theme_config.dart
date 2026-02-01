@@ -1,4 +1,5 @@
 // app/core/themes/theme_config.dart
+
 import 'package:flutter/material.dart';
 import 'colors.dart';
 
@@ -8,14 +9,14 @@ class AppTheme {
       useMaterial3: true,
       fontFamily: 'LexendGiga',
       
-      // Esquema de Cores Baseado no Design
+      
       colorScheme: const ColorScheme(
         brightness: Brightness.light,
-        primary: AppColors.accent,          // Laranja de ação
+        primary: AppColors.accent,          
         onPrimary: Colors.white,
-        secondary: AppColors.iconColor,     // Marrom dos ícones
+        secondary: AppColors.iconColor,     
         onSecondary: Colors.white,
-        surface: AppColors.homeBackground,  // Fundo bege acinzentado
+        surface: AppColors.homeBackground,  
         onSurface: Colors.black87,
         error: AppColors.error,
         onError: Colors.white,
@@ -24,7 +25,7 @@ class AppTheme {
 
       scaffoldBackgroundColor: AppColors.homeBackground,
 
-      // Estilo da AppBar (Baseado na Home)
+      
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -38,17 +39,17 @@ class AppTheme {
         ),
       ),
 
-      // Estilo dos Cards (As "Notes" amareladas do seu print)
+      
       cardTheme: CardThemeData(
         color: AppColors.cardYellow,
-        elevation: 0, // No print parece flat com bordas sutis
+        elevation: 0, 
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
           side: BorderSide(color: Colors.black, width: 1),
         ),
       ),
 
-      // Estilo da Barra de Busca
+      
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.searchBar,
@@ -60,19 +61,19 @@ class AppTheme {
         ),
       ),
 
-      // Tipografia Mapeada
+      
       textTheme: const TextTheme(
-        // Títulos das Tablaturas (Black 900)
+        
         displaySmall: TextStyle(
           fontWeight: FontWeight.w900,
           color: Colors.black87,
         ),
-        // Texto dentro das abas (Medium 500)
+        
         bodyLarge: TextStyle(
           fontWeight: FontWeight.w500,
           color: Colors.black87,
         ),
-        // Rótulos menores (Light 300)
+        
         labelMedium: TextStyle(
           fontWeight: FontWeight.w300,
           color: Colors.black54,
