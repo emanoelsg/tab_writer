@@ -1,6 +1,7 @@
 // app/features/home/presentation/pages/home_page.dart
 
 import 'package:flutter/material.dart';
+import 'package:tab_writer/app/core/themes/colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,29 +9,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            floating: true, 
-            snap: true, 
-            pinned: true, 
-            title: SearchBar(
-              leading: const Icon(Icons.search),
-              hintText: 'Search...',
-              onSubmitted: (value) {
-                // Handle search action
-              },
-            ),
-          ),
-
-          
-          SliverToBoxAdapter(child: Column(children: [
-            //list of tabs
-              ]
-            )),
-        ],
+      appBar: AppBar(
+        title: SearchBar(
+          leading: const Icon(Icons.search),
+          hintText: 'Search...',
+          onSubmitted: (value) {
+            // Handle search action
+          },
+        ),
       ),
+      backgroundColor: AppColors.homeBackground,
+      drawer: const Drawer(),
     );
   }
 }
