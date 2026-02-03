@@ -1,5 +1,7 @@
 // app/features/home/presentation/pages/home_page.dart
+
 import 'package:flutter/material.dart';
+import 'package:tab_writer/app/core/themes/colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,11 +10,16 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Page'),
+        title: SearchBar(
+          leading: const Icon(Icons.search),
+          hintText: 'Search...',
+          onSubmitted: (value) {
+            // Handle search action
+          },
+        ),
       ),
-      body: const Center(
-        child: Text('Welcome to the Home Page!'),
-      ),
+      backgroundColor: AppColors.homeBackground,
+      drawer: const Drawer(),
     );
   }
 }
