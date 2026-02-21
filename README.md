@@ -1,54 +1,48 @@
 # 🎼 TabWriter
 
-**TabWriter** is a high-performance musical tablature editor built with Flutter. It follows **Clean Architecture** principles and uses **Drift (SQLite)** for reactive local persistence. The project is designed to ensure musical integrity by validating measure sequences and is structured to scale for a future backend integration with Node.js and MySQL.
+**TabWriter** é um editor de tablaturas musicais de alta performance desenvolvido com **Flutter**. O projeto aplica rigorosamente os princípios de **Clean Architecture** e utiliza **Drift (SQLite)** para persistência local reativa, garantindo a integridade dos dados e a validação lógica de sequências musicais.
 
 ---
 
-## 🎯 Project Overview
+## 🎯 Objetivo do Projeto
 
-TabWriter isn't just a text field for tabs; it's a structured musical tool. Each song is broken down into **Measures**, ensuring that every bar of music is accounted for, validated, and stored with high performance.
+O foco principal do TabWriter é auxiliar músicos no desenvolvimento de tablaturas de violão diretamente pelo smartphone. Diferente de editores de texto convencionais, o app estrutura a música de forma lógica, tratando-a como uma sequência de compassos validados.
 
-### 🌟 Key Features
+### 🌟 Diferenciais Técnicos
 
-- **Measure-by-Measure Logic**: Edit specific parts of a song without breaking the rest of the tab.
-- **Strict Validation**: The `TabValidator` ensures no duplicate measure IDs and no gaps in the musical sequence.
-- **Relational Persistence**: Uses a robust SQL schema to manage Users, Tabs, and Measures.
-- **Clean Architecture**: Decoupled layers (Domain, Data, UI) for maximum testability and maintainability.
-- **Reactive UI**: Built with Cubit (Bloc) for real-time state updates.
-
----
-
-## 🛠️ Tech Stack
-
-### Frontend & Logic
-![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
-
-### Database (Offline First)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-- **Drift (Moor)**: Reactive persistence library with static typing and SQL support.
-
-### State Management & Routing
-- **BLoC/Cubit**: Predictable state management.
-- **Go Router**: Declarative navigation.
+* **Lógica Baseada em Compassos**: Permite a edição granular de trechos da música, garantindo que alterações locais não corrompam a estrutura global da tablatura.
+* **Validação Estrita (`TabValidator`)**: Sistema que impede a existência de lacunas na sequência musical ou duplicidade de identificadores de compassos.
+* **Persistência Relacional**: Gerenciamento robusto de dados através de um esquema SQL para Usuários, Tabs e Compassos.
+* **Arquitetura Desacoplada**: Separação clara entre Domínio, Dados e UI, facilitando a escalabilidade, manutenção e implementação de testes unitários.
+* **Interface Reativa**: Sincronização de estado em tempo real utilizando a biblioteca **Cubit (Bloc)**.
 
 ---
 
-## 🏗️ Architecture
+## 🛠️ Stack Tecnológica
 
-The project follows **Clean Architecture** to ensure that business rules are independent of external frameworks.
+### Core & Persistência
+- **Flutter & Dart**: Desenvolvimento nativo cross-platform.
+- **Drift (Moor)**: Biblioteca de persistência reativa com tipagem estática e suporte a SQL avançado.
 
+### Gerenciamento de Estado & Navegação
+- **BLoC/Cubit**: Gerenciamento de estado previsível e desacoplado da UI.
+- **Go Router**: Roteamento declarativo para navegação fluida.
 
+---
 
-### Folder Structure
+## 🏗️ Estrutura de Arquitetura
+
+O projeto segue o padrão **Clean Architecture**, mantendo as regras de negócio (Domain) isoladas de detalhes de implementação externa e frameworks.
+
+### Organização de Diretórios
 ```text
 lib/
 ├── app/
-│   ├── core/
-│   │   ├── database/       # .drift schema files and AppDatabase config
-│   │   └── theme/          # App design system
-│   └── features/
+│   ├── core/           # Configurações globais, temas e esquemas do banco (.drift)
+│   └── features/       # Divisão por contextos de negócio
 │       └── tab/
-│           ├── domain/     # Entities, Validators, and Repository Interfaces
-│           ├── data/       # Models, Repository Impl, and DataSources
-│           └── ui/         # Cubits, Pages, and Widgets
+│           ├── domain/ # Entidades, Validadores e Contratos (Interfaces)
+│           ├── data/   # Models (DTOs), DataSources e Implementações de Repositórios
+│           └── ui/     # Camada visual (Cubits, Páginas e Componentes)
+```
+# 🤖Em desenvolvimento...
